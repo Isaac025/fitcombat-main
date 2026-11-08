@@ -14,7 +14,14 @@ const allowedOrigins = (process.env.CLIENT_URL || "http://localhost:5173")
   .map((o) => o.trim().replace(/\/$/, ""))
   .filter(Boolean);
 
-app.use(cors({ origin: allowedOrigins }));
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+  }),
+);
+
+console.log("allowedOrigins =", allowedOrigins);
 
 // Keep the raw bytes: Paystack's webhook signature is computed over them.
 app.use(
@@ -25,7 +32,9 @@ app.use(
   }),
 );
 
-app.get("/", (_req, res) => res.json({ status: "ok", service: "fitcombat-api" }));
+app.get("/", (_req, res) =>
+  res.json({ status: "ok", service: "fitcombat-api" }),
+);
 app.use("/api/tickets", ticketRoutes);
 
 const PORT = process.env.PORT || 5000;
