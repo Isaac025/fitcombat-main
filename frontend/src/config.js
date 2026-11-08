@@ -13,7 +13,7 @@ export const EVENT = {
     "https://www.google.com/maps/search/?api=1&query=Fusi+Event+Center+Lekki+Phase+1+Lagos",
   price: 10000, // naira — the backend independently checks this amount
   phone: "+2349034372316",
-  email: "fitcombat02@gmail.com",
+  email: "support@fitcombat.online",
 };
 
 export const API_URL = (
