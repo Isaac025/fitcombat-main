@@ -10,7 +10,8 @@ const ticketSchema = new mongoose.Schema(
     amountPaid: { type: Number, required: true }, // in kobo
     paid: { type: Boolean, default: true },
     emailSent: { type: Boolean, default: false },
-    checkedIn: { type: Boolean, default: false }, // handy for the door on event day
+    checkedIn: { type: Boolean, default: false }, // set at the door on event day
+    checkedInAt: { type: Date },
   },
   { timestamps: true },
 );
